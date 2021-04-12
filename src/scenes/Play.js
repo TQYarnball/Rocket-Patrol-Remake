@@ -142,6 +142,7 @@ class Play extends Phaser.Scene{
     //    this.checkCollision(this.p1Rocket, this.Ship1);
     //    this.checkCollision(this.p1Rocket, this.Ship2);
     //    this.checkCollision(this.p1Rocket, this.Ship3);
+    
         if(this.checkCollision(this.p1Rocket, this.ship3)) {
         //    ship.alpha = 0;
             this.p1Rocket.reset();
@@ -159,15 +160,27 @@ class Play extends Phaser.Scene{
         }
     }
 
+    // checkCollision(rocket, ship) {
+    //     if(rocket.x > ship.x &&
+    //         rocket.x < ship.x+ ship.width &&
+    //         rocket.y + rocket.height > ship.y &&
+    //         rocket.y < ship.y + ship.height) {
+    //             return true;
+    //         } else { 
+    //             return false;
+    //         }
+    // }
+
     checkCollision(rocket, ship) {
-        if(rocket.x > ship.x &&
-            rocket.x < ship.x+ ship.width &&
-            rocket.y + rocket.height > ship.y &&
-            rocket.y < ship.y + ship.height) {
+        // simple AABB checking
+        if (rocket.x < ship.x + ship.width && 
+            rocket.x + rocket.width > ship.x && 
+            rocket.y < ship.y + ship.height &&
+            rocket.height + rocket.y > ship. y) {
                 return true;
-            } else { 
-                return false;
-            }
+        } else {
+            return false;
+        }
     }
 
     shipExplode(ship) {

@@ -1,3 +1,5 @@
+//const { Phaser } = require("../../lib/phaser");
+
 const { Phaser } = require("../../lib/phaser");
 
 class Rocket extends Phaser.GameObjects.Sprite {
@@ -10,29 +12,30 @@ class Rocket extends Phaser.GameObjects.Sprite {
 
     update() {
         if(this.isFiring){
-
-        } else {
-            if(keyLEFT.isDown) {
-             this.x -=this.movementSpeed;
+            if(keyLEFT.isDown && this.x >= borderUISize + this.width) {
+                this.x -= this.movementSpeed;
+            } else if (keyRight.isDown && this.x <= game.config.width - borderUISize - this.width) {
+                this.x += this.movementSpeed;
             }
-            if(keyRIGHT.isDown) {
-             this.x += this.movementSpeed;
-            }
+        }
 
-            if(Phaser.Input.Keyboard.JustDown(keyF)) {
-                this.isFiring = true;
-            }
-
-            this.x = Phaser.Math.Clamp(
-                this.x,
-                borderUISize+borderPadding, 
-                game.config.width-borderUISize-borderPadding);
+        //fire button
+        if(Phaser.Input.Keyboard.JustDown(keyF)) {
+            this.isFiring = true;
+        }
+        //if fired, move up
+        if(this.isFiring && this.y >= borderUISize * 3 + borderPadding) {
+            this.y -= this.movementSpeed;
         }    
-        
+        //reset on miss
+        if(this.y <= borderUISize * 3 + borderPadding) {
+            this.isFiring = false;
+            this.y = game.config.height - borderUISize - borderPadding;
+        }
     }
-    reset() {
-        this.y = game.config.height-borderUISize-borderPadding;
-        this.isFiring = false;
-    }
+    //reset() {
+    //    this.y = game.config.height-borderUISize-borderPadding;
+    //    this.isFiring = false;
+    //}
 
 }

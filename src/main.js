@@ -8,3 +8,8 @@ let config = {
 }
 
 let game = new Phaser.Game();
+
+let borderUISize = gmae.config.height / 15;
+let borderPadding = borderUISize / 3;
+
+let keyLeft, keyRight, keyF, keyR;

@@ -1,6 +1,6 @@
 //const { Phaser } = require("../../lib/phaser");
 
-const { Phaser } = require("../../lib/phaser");
+//const { Phaser } = require("../../lib/phaser");
 
 class Rocket extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {

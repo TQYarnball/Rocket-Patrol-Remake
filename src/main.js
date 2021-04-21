@@ -1,5 +1,7 @@
-//const { Phaser } = require("../lib/phaser");
-//remove the above line if nothing specifically tells you to add it by the end of the tutorial.
+//Riley Dix 4/17/21 -- took about 12 hours
+//Points Breakdown: 
+//Game artwork, UI, and sound has been changed for a pirate aesthetic (60 pts)
+//Planning to add mouse control, and a new speedy enemy ship (20 pts each)
 let config = {
     type: Phaser.Auto,
     width: 640,

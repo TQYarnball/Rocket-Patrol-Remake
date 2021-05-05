@@ -1,7 +1,8 @@
 //Riley Dix 4/17/21 -- took about 12 hours
 //Points Breakdown: 
 //Game artwork, UI, and sound has been changed for a pirate aesthetic (60 pts)
-//Planning to add mouse control, and a new speedy enemy ship (20 pts each)
+//Planning to add mouse control (20 pts)
+//Added time when ships are hit (20pts)
 let config = {
     type: Phaser.Auto,
     width: 640,
